@@ -5,13 +5,15 @@ import loguru
 def on_click(self):  # Метод действие кнопки
     conn = sqlite3.connect('database/medical_person.db')
     c = conn.cursor()
-    c.execute("""INSERT INTO medical_db VALUES (:id , :surname, :age,
+    c.execute("""INSERT INTO medical_db VALUES (:id , :number_docs, :surname,
+                :age,
                 :floor, :affiliation, :rank, :military_unit, :reason,
                 :diagnosis, :voluntary_consent, :first_aid, :medical,
                 :evacuation,
                 :evacuation_queue, :evacuation_method, :where_delivered,
                 :name_doctor, :date)""", {
                 'id': None,
+                'number_docs': self.ids.document_number.text,
                 'surname': self.ids.surname.text,
                 'age': self.ids.age.text,
                 'floor': self.ids.floor.text,

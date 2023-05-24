@@ -17,12 +17,15 @@ def qrcode_to_db_(self):
         if self.decode_date is not None:
             file = open('static_fiels/data_of_qrcode.csv')
             contents = csv.reader(file)
-            insert_records = """INSERT INTO wounded_fighter(name,
-                number_token_fighter, number_part,
-                date, identified_injuries, medical_care_provided,
-                                sanitary_treatment, diagnosis,
-                                priority, medic_data)
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
+            insert_records = """INSERT INTO medical_db(number_docs, surname,
+                age,
+                floor, affiliation, rank, military_unit, reason,
+                diagnosis, voluntary_consent, first_aid, medical,
+                evacuation,
+                evacuation_queue, evacuation_method, where_delivered,
+                name_doctor, datetime)
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                                ?, ?, ?, ?, ?, ?)"""
             c.executemany(insert_records, contents)
             conn.commit()
             conn.close()

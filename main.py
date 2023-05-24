@@ -14,7 +14,6 @@ from button_press.button_on_click import on_click
 from config.send_qr_date import qrcode_to_db_
 from create_qrcode.read_qrocde import on_symbols_
 
-
 from dropdown_modul.floor_menu import floor_mod
 from dropdown_modul.affiliation_menu import affiliation_menu_mod
 from dropdown_modul.military_rank_menu import military_rank_mod
@@ -26,6 +25,7 @@ from dropdown_modul.evacuation_menu import evacuation_mod
 from dropdown_modul.evacuation_queue_menu import evacuation_queue_mod
 from dropdown_modul.where_delivered_menu import where_delivered_mod
 from dropdown_modul.evacuation_method_menu import evacuation_method_mod
+from dropdown_modul.counter_menu import counter_mod
 from file_kv import KV
 
 
@@ -71,6 +71,14 @@ class FirstScreen(Screen):
 
 class SecondScreen(Screen):
     """ Второй экран приложения"""
+
+    def document_number_tap(self):
+        return counter_mod(self)
+
+    def set_document_number_item(self, text__item):
+        """Метод для закрытия выпадающего меню"""
+        self.ids.document_number.text = text__item
+        self.menu.dismiss()
 
     def patients_gender(self):
         """Пол пациента"""

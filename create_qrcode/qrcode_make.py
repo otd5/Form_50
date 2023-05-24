@@ -8,7 +8,7 @@ def make_qrcode():
 
     conn = sqlite3.connect('database/medical_person.db')
     c = conn.cursor()
-    c.execute("""SELECT surname, age,
+    c.execute("""SELECT number_docs, surname, age,
                 floor, affiliation, rank, military_unit, reason,
                 diagnosis, voluntary_consent, first_aid, medical,
                 evacuation,
@@ -23,8 +23,6 @@ def make_qrcode():
         writer = csv.writer(the_file, dialect="custom")
         writer.writerow(records[0])
         writer.writerow(records[1])
-        # writer.writerow(records[2])
-        # writer.writerow(records[3])
 
     with open("static_fiels/data_of_wounded.csv") as f:
         date = f.read()

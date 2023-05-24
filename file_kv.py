@@ -38,7 +38,7 @@ ScreenManager:
 
                 MDTopAppBar:
                     id: toolbar
-                    title: "Форма 100"
+                    title: "Форма 50"
                     elevation: 4
                     pos_hint: {"top": 1}
                     md_bg_color: "#e7e4c0"
@@ -72,7 +72,7 @@ ScreenManager:
                 MDNavigationDrawerHeader:
                     title: "Меню"
                     title_color: "#BF3030"
-                    text: "Форма 100"
+                    text: "Форма 50"
                     spacing: "4dp"
                     padding: "12dp", 0, 0, "56dp"
 
@@ -80,6 +80,7 @@ ScreenManager:
                     icon: "hospital"
                     text_right_color: "#4a4939"
                     text: "Заполнение карты пациента"
+                    # on_press: root.counter()
                     on_release: root.manager.current = 'second'
 
                 DrawerClickableItem:
@@ -118,6 +119,7 @@ ScreenManager:
     evacuation_queue: evacuation_queue
     where_delivered: where_delivered
     evacuation_method: evacuation_method
+    document_number: document_number
 
     MDBoxLayout:
         adaptive_size: False
@@ -137,6 +139,14 @@ ScreenManager:
             pos_hint: {'center_y': .5}
 
             MDList:
+                MDTextField:
+                    id: document_number
+                    hint_text: "Номер документа"
+                    helper_text: "Выбрать из выпадающего списка"
+                    helper_text_mode: "on_focus"
+                    line_color_focus: "red"
+                    on_focus: if self.focus: root.document_number_tap()
+
                 MDTextField:
                     id: surname
                     hint_text: "Ф.И.О"
