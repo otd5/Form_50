@@ -114,7 +114,11 @@ ScreenManager:
     diagnosis: diagnosis
     voluntary_consent: voluntary_consent
     first_aid: first_aid
-    
+    evacuation: evacuation
+    evacuation_queue: evacuation_queue
+    where_delivered: where_delivered
+    evacuation_method: evacuation_method
+
     MDBoxLayout:
         adaptive_size: False
         orientation:"vertical"
@@ -146,7 +150,7 @@ ScreenManager:
                     helper_text: "Возраст пациента"
                     helper_text_mode: "on_focus"
                     line_color_focus: "red"
-                    
+
                 MDTextField:
                     id: floor
                     hint_text: "Пол"
@@ -224,7 +228,7 @@ ScreenManager:
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
                     line_color_focus: "red"
-                    on_focus: if self.focus: root.Переделать()
+                    on_focus: if self.focus: root.evacuation_patients()
 
                 MDTextField:
                     id: evacuation_queue
@@ -232,7 +236,7 @@ ScreenManager:
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
                     line_color_focus: "red"
-                    on_focus: if self.focus: root.Переделать()
+                    on_focus: if self.focus: root.evacuation_queue_patients()
 
                 MDTextField:
                     id: evacuation_method
@@ -240,7 +244,7 @@ ScreenManager:
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
                     line_color_focus: "red"
-                    on_focus: if self.focus: root.Переделать()
+                    on_focus: if self.focus: root.evacuation_method_patients()
 
                 MDTextField:
                     id: where_delivered
@@ -248,7 +252,7 @@ ScreenManager:
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
                     line_color_focus: "red"
-                    on_focus: if self.focus: root.Переделать()
+                    on_focus: if self.focus: root.where_delivered_patients()
 
                 MDTextField:
                     id: name_doctor

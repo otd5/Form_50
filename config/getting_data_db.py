@@ -4,9 +4,9 @@ import loguru
 
 def view_all_name(self):
 
-    conn = sqlite3.connect('database/medical_db.db')
+    conn = sqlite3.connect('database/medical_person.db')
     c = conn.cursor()
-    c.execute("""SELECT name, priority FROM wounded_fighter""")
+    c.execute("""SELECT surname, evacuation_queue FROM medical_db""")
     records = c.fetchall()
     if not records:
         loguru.logger.error("База данных пуста")

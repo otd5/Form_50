@@ -13,7 +13,7 @@ from create_qrcode.qrcode_make import make_qrcode
 from button_press.button_on_click import on_click
 from config.send_qr_date import qrcode_to_db_
 from create_qrcode.read_qrocde import on_symbols_
-from file_kv import KV
+
 
 from dropdown_modul.floor_menu import floor_mod
 from dropdown_modul.affiliation_menu import affiliation_menu_mod
@@ -22,9 +22,14 @@ from dropdown_modul.reason_for_the_appeal import reason_for_the_appeal_mod
 from dropdown_modul.diagnosis_menu import diagnosis_mod
 from dropdown_modul.voluntary_consent_menu import voluntary_consent_mod
 from dropdown_modul.first_medical_aid import first_medical_aid_mod
+from dropdown_modul.evacuation_menu import evacuation_mod
+from dropdown_modul.evacuation_queue_menu import evacuation_queue_mod
+from dropdown_modul.where_delivered_menu import where_delivered_mod
+from dropdown_modul.evacuation_method_menu import evacuation_method_mod
+from file_kv import KV
 
-# Window.size = (320, 600)  # Мобильный Эран(Адаптивное разрешение)
-Window.size = (500, 750)  # Планшет(Адаптивное разрешение)
+
+Window.size = (500, 750)
 
 
 class Item(OneLineAvatarListItem):
@@ -130,8 +135,6 @@ class SecondScreen(Screen):
         self.ids.first_aid.text = text__item
         self.menu.dismiss()
 
-# TODO This ____
-
     def medical_care_provided(self):
         """Оказанная медицинская помощь"""
         return medical_care_provided_mod(self)
@@ -139,6 +142,42 @@ class SecondScreen(Screen):
     def set_item_medical(self, text__item):
         """Метод для закрытия выпадающего меню"""
         self.ids.medical.text = text__item
+        self.menu.dismiss()
+
+    def evacuation_patients(self):
+        """Эвакуация"""
+        return evacuation_mod(self)
+
+    def set_evacuation_medical(self, text__item):
+        """Метод для закрытия выпадающего меню"""
+        self.ids.evacuation.text = text__item
+        self.menu.dismiss()
+
+    def evacuation_queue_patients(self):
+        """Очередь эвакуации"""
+        return evacuation_queue_mod(self)
+
+    def set_evacuation_queue_item(self, text__item):
+        """Метод для закрытия выпадающего меню"""
+        self.ids.evacuation_queue.text = text__item
+        self.menu.dismiss()
+
+    def evacuation_method_patients(self):
+        """Куда доставлен пациент"""
+        return evacuation_method_mod(self)
+
+    def set_evacuation_method_item(self, text__item):
+        """Метод для закрытия выпадающего меню"""
+        self.ids.evacuation_method.text = text__item
+        self.menu.dismiss()
+
+    def where_delivered_patients(self):
+        """Куда доставлен пациент"""
+        return where_delivered_mod(self)
+
+    def set_where_delivered_item(self, text__item):
+        """Метод для закрытия выпадающего меню"""
+        self.ids.where_delivered.text = text__item
         self.menu.dismiss()
 
     def sand_date_to_db(self):  # Метод действие кнопки
@@ -187,3 +226,4 @@ class MainApp(MDApp):
 
 if __name__ == "__main__":
     MainApp().run()
+

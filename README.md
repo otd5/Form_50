@@ -1,10 +1,10 @@
-# Form 100
+# Form 50
 Desktop version form for registration of wounded
 
 
 # Deploy Project on local machine for VSCode
 clone repository from git:
-git clone git@github.com:otd5/Form_100.git
+git clone https://github.com/otd5/Form_50.git
 
 
 # Installation

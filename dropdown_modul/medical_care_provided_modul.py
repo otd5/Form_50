@@ -8,67 +8,30 @@ def medical_care_provided_mod(self):
         {
             "viewclass": "OneLineListItem",
             "height": dp(56),
-            "text": "Антибиотик",
+            "text": "Повязка на руку",
             "on_release":
-                lambda x="Антибиотик": self.set_item_medical(x),
+                lambda x="Повязка на руку": self.set_item_medical(x),
         },
         {
             "viewclass": "OneLineListItem",
             "height": dp(56),
-            "text": "Сыворотка ПСС, ПГС",
+            "text": "Давящая повязка",
             "on_release":
-                lambda x="Сыворотка ПСС, ПГС": self.set_item_medical(x),
+                lambda x="Давящая повязка": self.set_item_medical(x),
         },
         {
             "viewclass": "OneLineListItem",
             "height": dp(56),
-            "text": "Анатоксин (какой)",
+            "text": "Тампонада раны",
             "on_release":
-                lambda x="Анатоксин (какой)": self.set_item_medical(x),
+                lambda x="Тампонада раны": self.set_item_medical(x),
         },
         {
             "viewclass": "OneLineListItem",
             "height": dp(56),
-            "text": "Антидот (какой)",
+            "text": "Зажим (лигатура) на сосуд",
             "on_release":
-                lambda x="Антидот (какой)": self.set_item_medical(x),
-        },
-        {
-            "viewclass": "OneLineListItem",
-            "height": dp(56),
-            "text": "Обезболивающее средство",
-            "on_release": (
-                lambda x="Обезболивающее средство":
-                    self.set_item_medical(x)),
-        },
-        {
-            "viewclass": "OneLineListItem",
-            "height": dp(56),
-            "text": "Переливание крови",
-            "on_release":
-                lambda x="Переливание крови": self.set_item_medical(x),
-        },
-        {
-            "viewclass": "OneLineListItem",
-            "height": dp(56),
-            "text": "Переливание кровезаменителей",
-            "on_release":
-                (lambda x="Переливание кровезаменителей":
-                    self.set_item_medical(x)),
-        },
-        {
-            "viewclass": "OneLineListItem",
-            "height": dp(56),
-            "text": "Иммобилизация",
-            "on_release":
-                lambda x="Иммобилизация": self.set_item_medical(x),
-        },
-        {
-            "viewclass": "OneLineListItem",
-            "height": dp(56),
-            "text": "Перевязывание",
-            "on_release":
-                lambda x="Перевязывание": self.set_item_medical(x),
+                lambda x="Зажим (лигатура) на сосуд": self.set_item_medical(x),
         },
         {
             "viewclass": "OneLineListItem",
@@ -77,15 +40,122 @@ def medical_care_provided_mod(self):
             "on_release": (
                 lambda x=f"""Жгут {datetime.now().strftime
                 ('%Y-%m-%d %H:%M:%S')}""":
-                    self.set_item_medical(x))
+                    self.set_item_medical(x)),
         },
         {
             "viewclass": "OneLineListItem",
             "height": dp(56),
-            "text": "Нет",
-            "on_release": (
-                lambda x="Медецинской помощи не потребовалось":
+            "text": "Контроль жгута",
+            "on_release":
+                lambda x="Контроль жгута": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Очищение ротоглотки",
+            "on_release":
+                (lambda x="Очищение ротоглотки":
                     self.set_item_medical(x)),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Воздуховод",
+            "on_release":
+                lambda x="Воздуховод": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Прошивание языка",
+            "on_release":
+                lambda x="Прошивание языка": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "ИВЛ",
+            "on_release":
+                lambda x="ИВЛ": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Ингаляция кислорода",
+            "on_release": (
+                lambda x="Ингаляция кислорода":
+                    self.set_item_medical(x)),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Аспирация из трахеи",
+            "on_release":
+                lambda x="Аспирация из трахеи": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Конкотез иглами",
+            "on_release":
+                lambda x="Конкотез иглами": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Конкокритомия",
+            "on_release":
+                lambda x="Конкокритомия": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Трахеостомия",
+            "on_release":
+                lambda x="Трахеостомия": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Окклюзионная повязка",
+            "on_release":
+                lambda x="Окклюзионная повязка": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Выведение мочи",
+            "on_release":
+                lambda x="Выведение мочи": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Антибиотк",
+            "on_release":
+                (lambda x="Антибиотик":
+                    self.set_item_medical(x)),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Антитаксин",
+            "on_release":
+                lambda x="Антитаксин": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Сыворотка",
+            "on_release":
+                lambda x="Сыворотка": self.set_item_medical(x),
+        },
+        {
+            "viewclass": "OneLineListItem",
+            "height": dp(56),
+            "text": "Антидот",
+            "on_release":
+                lambda x="Антидот": self.set_item_medical(x),
         }
     ]
 

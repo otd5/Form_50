@@ -6,12 +6,14 @@ import loguru
 
 def make_qrcode():
 
-    conn = sqlite3.connect('database/medical_db.db')
+    conn = sqlite3.connect('database/medical_person.db')
     c = conn.cursor()
-    c.execute("""SELECT name, number_token_fighter, number_part,
-              date, identified_injuries, medical_care_provided,
-              sanitary_treatment, diagnosis, priority,
-              medic_data FROM wounded_fighter""")
+    c.execute("""SELECT surname, age,
+                floor, affiliation, rank, military_unit, reason,
+                diagnosis, voluntary_consent, first_aid, medical,
+                evacuation,
+                evacuation_queue, evacuation_method, where_delivered,
+                name_doctor, datetime FROM medical_db""")
     records = c.fetchall()
     loguru.logger.info("Данные из базы получены")
 
@@ -21,8 +23,8 @@ def make_qrcode():
         writer = csv.writer(the_file, dialect="custom")
         writer.writerow(records[0])
         writer.writerow(records[1])
-        writer.writerow(records[2])
-        writer.writerow(records[3])
+        # writer.writerow(records[2])
+        # writer.writerow(records[3])
 
     with open("static_fiels/data_of_wounded.csv") as f:
         date = f.read()
