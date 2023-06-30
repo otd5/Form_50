@@ -12,8 +12,13 @@ def counter_mod(self):
               medical_db ORDER BY rowid DESC LIMIT 1""")
     records = c.fetchall()
     number_docs_counter = ''
+    if records == []:
+        records = [(1,)]
     for item in records:
         number_docs_counter = item
+
+    # if records == []:
+    #     number_docs_counter = 1
 
     self.menu_list = [
         {

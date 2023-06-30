@@ -53,7 +53,7 @@ def military_rank_mod(self):
             "viewclass": "OneLineListItem",
             "height": dp(56),
             "text": "Старший прапорщик",
-            "on_release": lambda x="Старший прапорщик": 
+            "on_release": lambda x="Старший прапорщик":
                 self.set_military_item(x),
         },
         {
@@ -66,7 +66,7 @@ def military_rank_mod(self):
             "viewclass": "OneLineListItem",
             "height": dp(56),
             "text": "Старший лейтенант",
-            "on_release": lambda x="Старший лейтенант": 
+            "on_release": lambda x="Старший лейтенант":
                 self.set_military_item(x),
         },
         {

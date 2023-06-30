@@ -1,6 +1,7 @@
 from kivymd.uix.snackbar import Snackbar
 import csv
 import loguru
+from .dropdown_decode import decode_qrcode
 
 
 def on_symbols_(self, instance, symbols):
@@ -18,13 +19,16 @@ def on_symbols_(self, instance, symbols):
                     font_size=25
 
             ).open()
-        self.decode_date = self.decode_text.strip().split(',')
+        self.decode_date = decode_qrcode(self.decode_text)
 
-        with open('static_fiels/data_of_qrcode.csv', "w") as the_file:
+        with open('static_fiels/data_of_qrcode.csv', "w", newline='',
+                  encoding='UTF-8') as the_file:
             csv.register_dialect("custom", delimiter=",",
                                  skipinitialspace=True,
-                                 lineterminator='"')
+                                 )
             writer = csv.writer(the_file, dialect="custom")
-            writer.writerow(self.decode_date)
+            for row in self.decode_date:
+                writer.writerow(row)
+
     else:
         loguru.logger.error("Qr code не получен")

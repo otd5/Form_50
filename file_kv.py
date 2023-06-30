@@ -4,8 +4,8 @@ KV = '''
 #:import Snackbar kivymd.uix.snackbar.Snackbar
 
 <DrawerClickableItem@MDNavigationDrawerItem>
-    focus_color: "#e7e4c0"
-    text_color: "red"
+    focus_color: "20b2bd"
+    text_color: "black"
     icon_color: "orange"
     ripple_color: "#c5bdd2"
     selected_color: "#0c6c4d"
@@ -38,11 +38,12 @@ ScreenManager:
 
                 MDTopAppBar:
                     id: toolbar
+                    right_action_items: [["static_fiels/1.png"]]
                     title: "Форма 50"
                     elevation: 4
                     pos_hint: {"top": 1}
-                    md_bg_color: "#e7e4c0"
-                    specific_text_color: "#4a4939"
+                    md_bg_color: "20b2bd"
+                    specific_text_color: "#fff0f5"
                     left_action_items:
                         [['menu', lambda x: nav_drawer.set_state("open")]]
 
@@ -52,13 +53,13 @@ ScreenManager:
                     font_style: 'H6'
                     text: "Cписок пациентов"
                     halign: "center"
-                    text_color: "#FFAA00"
+                    text_color: "black"
 
                 MDRectangleFlatIconButton:
                     text: 'Просмотреть всех пациентов'
                     heme_text_color: "Custom"
-                    text_color: "white"
-                    line_color: "red"
+                    text_color: "black"
+                    line_color: "20b2bd"
                     pos_hint: {'center_x': 0.7, 'center_y': .1}
                     on_press: root.view_all()
 
@@ -71,7 +72,7 @@ ScreenManager:
 
                 MDNavigationDrawerHeader:
                     title: "Меню"
-                    title_color: "#BF3030"
+                    title_color: "20b2bd"
                     text: "Форма 50"
                     spacing: "4dp"
                     padding: "12dp", 0, 0, "56dp"
@@ -88,7 +89,8 @@ ScreenManager:
                     text_right_color: "#4a4939"
                     text: "Создать QR-сod"
                     on_press: root.button_press()
-                    on_release: root.manager.current = 'qrcode_screen'
+                    on_release:
+                        root.manager.current = 'qrcode_screen'
 
                 DrawerClickableItem:
                     icon: "qrcode-scan"
@@ -144,29 +146,32 @@ ScreenManager:
                     hint_text: "Номер документа"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.document_number_tap()
 
                 MDTextField:
                     id: surname
                     hint_text: "Ф.И.О"
+                    color_mode: 'accent'
                     helper_text: "Поле для ручного ввода"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
 
                 MDTextField:
                     id: age
                     hint_text: "Возраст"
                     helper_text: "Возраст пациента"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
 
                 MDTextField:
                     id: floor
                     hint_text: "Пол"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.patients_gender()
 
                 MDTextField:
@@ -174,7 +179,8 @@ ScreenManager:
                     hint_text: "Принадлежность"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.affiliation_menu()
 
                 MDTextField:
@@ -182,7 +188,8 @@ ScreenManager:
                     hint_text: "Воинское звание"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.military_rank()
 
                 MDTextField:
@@ -190,14 +197,15 @@ ScreenManager:
                     hint_text: "Воинская часть/Наименование"
                     helper_text: "Поле для ручного ввода"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
 
                 MDTextField:
                     id: reason
                     hint_text: "Причина обращения"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.reason_for_the_appeal()
 
                 MDTextField:
@@ -205,15 +213,16 @@ ScreenManager:
                     hint_text: "Диагноз"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
                     on_focus: if self.focus: root.patients_diagnosis()
 
                 MDTextField:
                     id: voluntary_consent
-                    hint_text: "Информация о добровольном согласии"
+                    hint_text: "Информированное добровольное согласие"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.voluntary_consent_patients()
 
                 MDTextField:
@@ -221,7 +230,8 @@ ScreenManager:
                     hint_text: "Первая помощь"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.first_medical_aid()
 
                 MDTextField:
@@ -229,7 +239,8 @@ ScreenManager:
                     hint_text: "Медицинская помощь"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.medical_care_provided()
 
                 MDTextField:
@@ -237,7 +248,8 @@ ScreenManager:
                     hint_text: "Эвакуация"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.evacuation_patients()
 
                 MDTextField:
@@ -245,7 +257,8 @@ ScreenManager:
                     hint_text: "Очередь эвакуации"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.evacuation_queue_patients()
 
                 MDTextField:
@@ -253,7 +266,8 @@ ScreenManager:
                     hint_text: "Способ эвакуации"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.evacuation_method_patients()
 
                 MDTextField:
@@ -261,7 +275,8 @@ ScreenManager:
                     hint_text: "Куда доставлен"
                     helper_text: "Выбрать из выпадающего списка"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
+                    readonly: True
                     on_focus: if self.focus: root.where_delivered_patients()
 
                 MDTextField:
@@ -269,13 +284,13 @@ ScreenManager:
                     hint_text: "Ф.И.О Врача"
                     helper_text: "Данные заполнявшего форму"
                     helper_text_mode: "on_focus"
-                    line_color_focus: "red"
+                    line_color_focus: "20b2bd"
 
         MDRectangleFlatIconButton:
             text: 'Отправить'
             heme_text_color: "Custom"
-            text_color: "white"
-            line_color: "red"
+            text_color: "black"
+            line_color: "20b2bd"
             pos_hint: {'center_x': 0.9, 'center_y': 0.5}
             on_press: root.sand_date_to_db()
             on_release: Snackbar(text="Данные успешно отправлены").open()
@@ -283,8 +298,8 @@ ScreenManager:
         MDRectangleFlatIconButton:
             text: '     Назад     '
             heme_text_color: "Custom"
-            text_color: "white"
-            line_color: "red"
+            text_color: "black"
+            line_color: "20b2bd"
             pos_hint: {'center_x': 0.9, 'center_y': 0.5}
             on_press: root.manager.current = 'first'
 
@@ -319,16 +334,16 @@ ScreenManager:
         MDRectangleFlatIconButton:
             text: 'Просмотреть QR Code'
             heme_text_color: "Custom"
-            text_color: "white"
-            line_color: "red"
+            text_color: "black"
+            line_color: "20b2bd"
             pos_hint: {'center_x': 0.9, 'center_y': 0.3}
             on_release: root.view_image(root)
 
         MDRectangleFlatIconButton:
             text: '     Назад     '
             theme_text_color: "Custom"
-            text_color: "white"
-            line_color: "red"
+            text_color: "black"
+            line_color: "20b2bd"
             pos_hint: {'center_x': 0.9, 'center_y': 0.5}
             on_press: root.manager.current = 'first'
 
@@ -352,8 +367,7 @@ ScreenManager:
         MDRectangleFlatIconButton:
             text: 'Отправить'
             theme_text_color: "Custom"
-            text_color: "white"
-            line_color: "red"
+            line_color: "20b2bd"
             pos_hint: {'center_x': 0.9, 'center_y': 0.3}
             on_press: root.put_db()
             on_release: Snackbar(text="Данные сохранены").open()
@@ -362,8 +376,8 @@ ScreenManager:
         MDRectangleFlatIconButton:
             text: '     Назад     '
             theme_text_color: "Custom"
-            text_color: "white"
-            line_color: "red"
+            text_color: "black"
+            line_color: "20b2bd"
             pos_hint: {'center_x': 0.9, 'center_y': 0.3}
             on_press: root.manager.current = 'first'
 

@@ -27,6 +27,7 @@ from dropdown_modul.where_delivered_menu import where_delivered_mod
 from dropdown_modul.evacuation_method_menu import evacuation_method_mod
 from dropdown_modul.counter_menu import counter_mod
 from file_kv import KV
+import sqlite3
 
 
 Window.size = (500, 750)
@@ -196,7 +197,13 @@ class SecondScreen(Screen):
 class QR_CodeScreen(Screen):
 
     def view_image(self, root):
-        self.ids.img_.source = 'static_fiels/site.png'
+        self.ids.img_.source = 'static_fiels/wounded_qrcode.png'
+        # Обновление статуса записи в бд
+        conn = sqlite3.connect('database/medical_person.db')
+        c = conn.cursor()
+        c.execute("""UPDATE medical_db SET check_st = True """)
+        conn.commit()
+        conn.close()
 
 
 # Я не уверен, что нам это нужно, но я слишком сильно боюсь это удалять.
@@ -227,8 +234,10 @@ class MainApp(MDApp):
         self.screen = Builder.load_string(KV)
 
     def build(self):
-        self.theme_cls.theme_style = "Dark"  # Тема основного приложения
-        self.theme_cls.primary_palette = 'Red'  # Цвет кнопки(Элеметов)
+        self.theme_cls.theme_style = "Light"  # Тема основного приложения
+        self.theme_cls.primary_palette = 'Blue'  # Цвет кнопки(Элеметов)
+        # TODO I have nothing to do with it, so the boss came up with it(Шляпа)
+        self.icon = "static_fiels/the_idea_of_Nicholas.jpg"
         return self.screen
 
 

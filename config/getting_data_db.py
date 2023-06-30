@@ -16,11 +16,11 @@ def view_all_name(self):
         two = ''
         three = ''
         for item in records:
-            if item[1] == 1:
+            if item[1] == 'Первая':
                 one += f'{item[0]}\n'
-            elif item[1] == 2:
+            elif item[1] == 'Вторая':
                 two += f'{item[0]}\n'
-            elif item[1] == 3:
+            elif item[1] == 'Третья':
                 three += f'{item[0]}\n'
         self.ids.labled.text = f"""[Тяжело раненные]\n{one}
                                     \n [Средней тяжести]\n {two}

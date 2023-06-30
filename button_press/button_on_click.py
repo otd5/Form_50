@@ -11,7 +11,7 @@ def on_click(self):  # Метод действие кнопки
                 :diagnosis, :voluntary_consent, :first_aid, :medical,
                 :evacuation,
                 :evacuation_queue, :evacuation_method, :where_delivered,
-                :name_doctor, :date)""", {
+                :name_doctor, :date, :resulting_string)""", {
                 'id': None,
                 'number_docs': self.ids.document_number.text,
                 'surname': self.ids.surname.text,
@@ -31,6 +31,7 @@ def on_click(self):  # Метод действие кнопки
                 'where_delivered': self.ids.where_delivered.text,
                 'name_doctor': self.ids.name_doctor.text,
                 'date': None,
+                'resulting_string': False
 
                 })
     conn.commit()

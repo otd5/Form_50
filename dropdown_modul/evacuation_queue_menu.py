@@ -7,23 +7,23 @@ def evacuation_queue_mod(self):
         {
             "viewclass": "OneLineListItem",
             "height": dp(56),
-            "text": "Первоочередной",
+            "text": "I",
             "on_release":
-                lambda x="1": self.set_evacuation_queue_item(x),
+                lambda x="Первая": self.set_evacuation_queue_item(x),
         },
         {
             "viewclass": "OneLineListItem",
             "height": dp(56),
-            "text": "Второстепенный",
-            "on_release": lambda x="2":
+            "text": "II",
+            "on_release": lambda x="Вторая":
                 self.set_evacuation_queue_item(x),
         },
         {
             "viewclass": "OneLineListItem",
             "height": dp(56),
-            "text": "Не требует срочной помощи",
+            "text": "III",
             "on_release":
-                lambda x="3":
+                lambda x="Третья":
                     self.set_evacuation_queue_item(x),
         }
         ]
